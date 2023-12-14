@@ -176,3 +176,112 @@ Lets take a look at the difference between layouts, pages and components.
 
 ## Adding a new Layout
 
+Besides pages we have layouts that are the outer layer of our application. They wrap the pages. They encupsulate the common elements of our application. For example the header, the footer, styling, etc.
+
+If we don't specify anything, Nuxt will use the default layout `layouts/default.vue` if it exists.
+
+```
+<template>
+  <div>
+    <h1>Layout H1</h1>
+    <nuxt />
+  </div>
+</template>
+<style>
+h1 {
+  color: red;
+}
+</style>
+
+```
+
+This will show the pages inside the layout `<nuxt />` component. with a red h1.
+
+Note: since we are using `<style>` and not `<style scoped>` this will affect all the pages that use this layout.
+
+Now if we wanted a different layout for the users page, we can create a `layouts/users.vue` file.
+
+```
+<template>
+  <div>
+    <header>User Layout H1</header>
+    <nuxt />
+  </div>
+</template>
+<style>
+h1 {
+  color: green;
+}
+</style>
+```
+
+Then in the `pages/users.vue` page we can specify the layout we want to use:
+
+```
+export default {
+...
+  layout: "users",
+...
+};
+```
+
+This will apply the users layout to the users page. It will also apply to the nested routes.
+
+Question: can you change the layout per nested route?
+
+## Adding a default error page
+
+Nuxt comes with a default error page that will be shown if there is an error in the page. For example if we try to access a page that doesn't exist.
+
+`layouts/error.vue`
+
+```
+<template>
+  <div>
+    <header>SOMETHING WENT WRONG !!!!</header>
+
+    <footer>SOMETHING WENT WRONG !!!!</footer>
+  </div>
+</template>
+<style>
+header,
+footer {
+  color: rgb(238, 12, 50);
+}
+</style>
+
+```
+
+Note: DO NOT LEAVE `<nuxt />` in the error layout, as it will cause an infinite loop.
+
+Note: global styles defined in layout are always applied wether you use the layout or not.
+
+## Working with "normal" Vue Components
+
+In `/components` we'll find he components that are small reusable pieces of code that are not rendered as pages but are part of the pages.
+
+Create a component `components/Header.vue`
+
+and you can use it in any page:
+
+```
+...
+<Header />
+...
+import Header from "~/components/Header.vue";
+```
+
+Note: the `~` is a shortcut to the root of the project. `@` would also work as webpack aliases.
+
+We could go around adding it in all the pages, but we can also add it to the layout.
+
+```
+<template>
+  <div>
+    <Header />
+    <nuxt />
+  </div>
+</template>
+```
+
+## Styling Nuxt Apps

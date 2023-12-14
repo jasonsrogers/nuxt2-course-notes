@@ -1,5 +1,6 @@
 <template>
   <div>
+    <h1>The Index Page (pages/index.vue)</h1>
     <section>
       <a href="/users">Users</a>
       <a href="/users/1">User 1</a>
