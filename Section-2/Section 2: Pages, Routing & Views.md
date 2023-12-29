@@ -285,3 +285,33 @@ We could go around adding it in all the pages, but we can also add it to the lay
 ```
 
 ## Styling Nuxt Apps
+
+Style can be done at page level and should usually be scoped to the page.
+
+```
+<style scoped>
+h1 {
+  color: red;
+}
+</style>
+```
+
+scoped styles will only apply to the page they are defined in.
+
+This also applies to components in the same way.
+
+Sometimes you have styles that are applied application wide. For this you can either use the `layouts/default.vue` (but you'll face an issue if using multiple layouts)
+
+To have truly global styles, you can use assets folder
+
+`assets/styles/global.css`
+
+Note: `styles` and `global` name are just conventions, you can name them whatever you want. Only `assets` is a special folder.
+
+Then in `nuxt.config.js` we can add the global css file:
+
+```
+export default {
+  css: ["~/assets/styles/global.css"],
+};
+```
