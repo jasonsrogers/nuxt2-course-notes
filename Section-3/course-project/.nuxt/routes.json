@@ -3,28 +3,27 @@
     "name": "about",
     "path": "/about",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/about/index.vue",
-    "chunkName": "pages/about/index"
+    "chunkName": "pages/about/index",
+    "_name": "_859eafd8"
   },
   {
     "name": "posts",
     "path": "/posts",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/posts/index.vue",
-    "chunkName": "pages/posts/index"
+    "chunkName": "pages/posts/index",
+    "_name": "_d2763e4c"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/index.vue",
-    "chunkName": "pages/index"
+    "chunkName": "pages/index",
+    "_name": "_ae1685d4"
   },
   {
     "name": "posts-id",
     "path": "/posts/:id",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/posts/_id/index.vue",
-    "chunkName": "pages/posts/_id/index"
-  }
-]
-ct/pages/posts/_id/index.vue",
     "chunkName": "pages/posts/_id/index",
     "_name": "_6c2dfec5"
   }

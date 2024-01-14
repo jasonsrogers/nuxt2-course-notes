@@ -174,4 +174,79 @@ And pass them from the index page
 />
 ```
 
+## Adding static assets - the background image
+
+Let's now work on the background image, we'll add it as a static asset folder
+
+Most of the time images will be loaded from a server where the asset is stored in something like an S3 bucket. But some images will always be the same and we can add them to our project
+
+Let's create a folder called `static` and inside it a folder called `images` and add the image there
+
+Note: `images` is not necessary, but it's a good practice to keep things organized
+
+Then we can use it in our component
+
+```html
+background-image: url("~assets/images/main-page-background.jpg");
+```
+
+`~` refers to the root folder (note: no `/`)
+
+And that it, webpack will take care of the rest and include the used assets in the build
+
+## Adding the Header Component
+
+Let's add a Navigation folder in `components` and create:
+
+- TheHeder.vue
+- TheSideNav.vue
+- TheSideNavToggle.vue
+
+Now lets add the header to our layout as it will be used in all pages
+
+Import it
+
+```
+<script>
+import TheHeader from "@/components/Navigation/TheHeader";
+import TheSidenav from "@/components/Navigation/TheSidenav";
+
+export default {
+  name: "DefaultLayout",
+  components: {
+    TheHeader,
+    TheSidenav,
+  },
+  data() {
+    return {
+      displaySidenav: false,
+    };
+  },
+};
+</script>
+```
+
+Use it
+
+```html
+<TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
+<TheSidenav :show="displaySidenav" @close="displaySidenav = false" />
+```
+
+## Vue Router vs Nuxt Router
+
+In our example, the links of the section we are visiting are highlighted. 
+
+```
+.nav-item a:hover,
+.nav-item a:active,
+.nav-item a.nuxt-link-active {
+  color: red;
+}
+```
+
+As long as our url matches the folder structure, the link will be highlighted.
+
+The marking of active is actually a vue router feature. The NuxtRouter is just a wrapper around the VueRouter which means we can use all the features of the VueRouter but call in NuxtRouter.
+
 

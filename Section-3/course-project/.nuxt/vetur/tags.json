@@ -1,5 +1,14 @@
 {
   "PostsPostPreview": {
     "description": "Auto imported from components/Posts/PostPreview.vue"
+  },
+  "NavigationTheHeader": {
+    "description": "Auto imported from components/Navigation/TheHeader.vue"
+  },
+  "NavigationTheSideNavToggle": {
+    "description": "Auto imported from components/Navigation/TheSideNavToggle.vue"
+  },
+  "NavigationTheSidenav": {
+    "description": "Auto imported from components/Navigation/TheSidenav.vue"
   }
 }
