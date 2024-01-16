@@ -5,8 +5,12 @@ import { interopDefault } from './utils'
 import scrollBehavior from './router.scrollBehavior.js'
 
 const _859eafd8 = () => interopDefault(import('../pages/about/index.vue' /* webpackChunkName: "pages/about/index" */))
+const _6b938554 = () => interopDefault(import('../pages/admin/index.vue' /* webpackChunkName: "pages/admin/index" */))
 const _d2763e4c = () => interopDefault(import('../pages/posts/index.vue' /* webpackChunkName: "pages/posts/index" */))
+const _498aab57 = () => interopDefault(import('../pages/admin/auth/index.vue' /* webpackChunkName: "pages/admin/auth/index" */))
+const _168b361c = () => interopDefault(import('../pages/admin/new-post/index.vue' /* webpackChunkName: "pages/admin/new-post/index" */))
 const _ae1685d4 = () => interopDefault(import('../pages/index.vue' /* webpackChunkName: "pages/index" */))
+const _3d3f0861 = () => interopDefault(import('../pages/admin/_postid/index.vue' /* webpackChunkName: "pages/admin/_postid/index" */))
 const _6c2dfec5 = () => interopDefault(import('../pages/posts/_id/index.vue' /* webpackChunkName: "pages/posts/_id/index" */))
 
 const emptyFn = () => {}
@@ -25,13 +29,29 @@ export const routerOptions = {
     component: _859eafd8,
     name: "about"
   }, {
+    path: "/admin",
+    component: _6b938554,
+    name: "admin"
+  }, {
     path: "/posts",
     component: _d2763e4c,
     name: "posts"
   }, {
+    path: "/admin/auth",
+    component: _498aab57,
+    name: "admin-auth"
+  }, {
+    path: "/admin/new-post",
+    component: _168b361c,
+    name: "admin-new-post"
+  }, {
     path: "/",
     component: _ae1685d4,
     name: "index"
+  }, {
+    path: "/admin/:postid",
+    component: _3d3f0861,
+    name: "admin-postid"
   }, {
     path: "/posts/:id",
     component: _6c2dfec5,

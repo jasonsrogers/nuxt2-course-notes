@@ -249,4 +249,20 @@ As long as our url matches the folder structure, the link will be highlighted.
 
 The marking of active is actually a vue router feature. The NuxtRouter is just a wrapper around the VueRouter which means we can use all the features of the VueRouter but call in NuxtRouter.
 
+## Working on the Post Page
+
+We'll reuse the PostPreview component and wrap it into a PostList component to share with the index page
+
+## Creating an admin section
+
+we're going to create 
+
+admin
+- index
+- id/
+- - index
+- auth
+- - index
+- new-post
+- - index
 

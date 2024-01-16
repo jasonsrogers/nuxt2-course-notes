@@ -7,6 +7,13 @@
     "_name": "_859eafd8"
   },
   {
+    "name": "admin",
+    "path": "/admin",
+    "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/index.vue",
+    "chunkName": "pages/admin/index",
+    "_name": "_6b938554"
+  },
+  {
     "name": "posts",
     "path": "/posts",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/posts/index.vue",
@@ -14,11 +21,32 @@
     "_name": "_d2763e4c"
   },
   {
+    "name": "admin-auth",
+    "path": "/admin/auth",
+    "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/auth/index.vue",
+    "chunkName": "pages/admin/auth/index",
+    "_name": "_498aab57"
+  },
+  {
+    "name": "admin-new-post",
+    "path": "/admin/new-post",
+    "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/new-post/index.vue",
+    "chunkName": "pages/admin/new-post/index",
+    "_name": "_168b361c"
+  },
+  {
     "name": "index",
     "path": "/",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/index.vue",
     "chunkName": "pages/index",
     "_name": "_ae1685d4"
+  },
+  {
+    "name": "admin-postid",
+    "path": "/admin/:postid",
+    "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/_postid/index.vue",
+    "chunkName": "pages/admin/_postid/index",
+    "_name": "_3d3f0861"
   },
   {
     "name": "posts-id",
