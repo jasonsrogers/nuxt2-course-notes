@@ -3,56 +3,48 @@
     "name": "about",
     "path": "/about",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/about/index.vue",
-    "chunkName": "pages/about/index",
-    "_name": "_859eafd8"
+    "chunkName": "pages/about/index"
   },
   {
     "name": "admin",
     "path": "/admin",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/index.vue",
-    "chunkName": "pages/admin/index",
-    "_name": "_6b938554"
+    "chunkName": "pages/admin/index"
   },
   {
     "name": "posts",
     "path": "/posts",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/posts/index.vue",
-    "chunkName": "pages/posts/index",
-    "_name": "_d2763e4c"
+    "chunkName": "pages/posts/index"
   },
   {
     "name": "admin-auth",
     "path": "/admin/auth",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/auth/index.vue",
-    "chunkName": "pages/admin/auth/index",
-    "_name": "_498aab57"
+    "chunkName": "pages/admin/auth/index"
   },
   {
     "name": "admin-new-post",
     "path": "/admin/new-post",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/new-post/index.vue",
-    "chunkName": "pages/admin/new-post/index",
-    "_name": "_168b361c"
+    "chunkName": "pages/admin/new-post/index"
   },
   {
     "name": "index",
     "path": "/",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/index.vue",
-    "chunkName": "pages/index",
-    "_name": "_ae1685d4"
+    "chunkName": "pages/index"
   },
   {
     "name": "admin-postid",
     "path": "/admin/:postid",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/admin/_postid/index.vue",
-    "chunkName": "pages/admin/_postid/index",
-    "_name": "_3d3f0861"
+    "chunkName": "pages/admin/_postid/index"
   },
   {
     "name": "posts-id",
     "path": "/posts/:id",
     "component": "/Users/jason/Dev/Udemy/Nuxt2/Section-3/course-project/pages/posts/_id/index.vue",
-    "chunkName": "pages/posts/_id/index",
-    "_name": "_6c2dfec5"
+    "chunkName": "pages/posts/_id/index"
   }
 ]
