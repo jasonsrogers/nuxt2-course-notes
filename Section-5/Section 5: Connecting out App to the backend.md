@@ -90,5 +90,117 @@ We need to tweak our store to initialize it with the data from the backend.
 :previewText="post.previewText"
 ```
 
+## Fetching any posts details
 
+```js
+export default {
+  asyncData(context) {
+    return axios
+      .get(`https://firebase.url/posts/${context.params.id}.json`)
+      .then((res) => {
+        return {
+          loadedPost: res.data,
+        };
+      })
+      .catch((e) => context.error(e));
+  },
+};
+```
+
+## Editing posts
+
+```js
+onSubmitted(editedPost) {
+      axios
+        .put(
+          `https://firebase.url/posts/${context.params.id}.json`,
+          {...editedPost, updatedDate: new Date()}
+        )
+        .then((result) => {
+          console.log("Post updated", result);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    },
+  },
+```
+
+if we wanted to go back after submitting the form we can use the router.
+
+```js
+   .then((result) => {
+          this.$router.push("/admin");
+        })
+```
+
+But the data is not up to date because we fetch using NuxtServerInit which only runs on the server. So we need to fetch the data again.
+
+```js
+  asyncData(context) {
+    return axios
+      .get(`https://firebase.url/posts/${context.params.id}.json`)
+      .then((res) => {
+        return {
+          loadedPost: res.data,
+        };
+      })
+      .catch((e) => context.error(e));
+  },
+```
+
+## Synchronizing Vuex and the backend
+
+Our data does not update until we refresh the page because it's only loaded using nuxtServerInit. We could switch to only using asyncData but that would mean longer load times.
+
+One solution is to manipulate the store directly.
+
+Let's add new mutations to the store
+
+```js
+ addPost(state, post) {
+        state.loadedPosts.push(post);
+},
+editPost(state, editedPost) {
+  const postIndex = state.loadedPosts.findIndex(
+    (post) => post.id === editedPost.id
+  );
+  state.loadedPosts[postIndex] = editedPost;
+},
+```
+
+and actions
+
+```js
+addPost(vuexContext, post) {
+        const createdPost = { ...post, updatedDate: new Date() };
+        return axios
+          .post(
+            "firbaseurl/posts.json",
+            createdPost
+          )
+          .then((result) => {
+            vuexContext.commit("addPost", {
+              ...createdPost,
+              id: result.data.name,
+            });
+          })
+          .catch((e) => {
+            console.log(e);
+          });
+      },
+
+```
+
+
+```js
+ onSubmitted(post) {
+      this.$store.dispatch("addPost", post).then(() => {
+        this.$router.push("/admin");
+      });
+    },
+```
+
+Note: we can't use $router in the store,  so it has to be in the callback 
+Note: we can't user context.route.params.id 
 

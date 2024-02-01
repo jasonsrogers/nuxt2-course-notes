@@ -13,7 +13,7 @@ import axios from "axios";
 export default {
   layout: "admin",
   components: {
-    AdminPostForm
+    AdminPostForm,
   },
   asyncData(context) {
     return axios
@@ -22,20 +22,20 @@ export default {
           context.params.postId +
           ".json"
       )
-      .then(res => {
+      .then((res) => {
         return {
-          loadedPost: { ...res.data, id: context.params.postId }
+          loadedPost: { ...res.data, id: context.params.postId },
         };
       })
-      .catch(e => context.error());
+      .catch((e) => context.error());
   },
   methods: {
     onSubmitted(editedPost) {
       this.$store.dispatch("editPost", editedPost).then(() => {
         this.$router.push("/admin");
       });
-    }
-  }
+    },
+  },
 };
 </script>
 

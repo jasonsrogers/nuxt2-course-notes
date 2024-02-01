@@ -15,59 +15,6 @@ export default {
   components: {
     PostList,
   },
-
-  // asyncData(context, callback) {
-  //   setTimeout(() => {
-  //     callback(null, {
-  //       loadedPosts: [
-  //         {
-  //           id: "1",
-  //           title: "First Post",
-  //           previewText: "This is our first post!",
-  //           thumbnail:
-  //             "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  //         },
-  //         {
-  //           id: "2",
-  //           title: "Second Post",
-  //           previewText: "This is our second post!",
-  //           thumbnail:
-  //             "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  //         },
-  //       ],
-  //     });
-  //   }, 1500);
-  // },
-  // data() {
-  //   return {
-  //     loadedPosts: [
-  //       {
-  //         id: "1",
-  //         isAdmin: false,
-  //         thumbnail:
-  //           "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  //         title: "Hello there!",
-  //         previewText: "This is a preview of the post",
-  //       },
-  //       {
-  //         id: "2",
-  //         isAdmin: false,
-  //         thumbnail:
-  //           "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  //         title: "Hello there 2!",
-  //         previewText: "This is a preview of the post 2",
-  //       },
-  //       {
-  //         id: "3",
-  //         isAdmin: false,
-  //         thumbnail:
-  //           "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  //         title: "Hello there! 3",
-  //         previewText: "This is a preview of the post 3",
-  //       },
-  //     ],
-  //   };
-  // },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
