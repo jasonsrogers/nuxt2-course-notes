@@ -27,9 +27,7 @@ import axios from "axios";
 export default {
   asyncData(context) {
     return axios
-      .get(
-        `https://nuxt-blog-1371e-default-rtdb.europe-west1.firebasedatabase.app/posts/${context.params.id}.json`
-      )
+      .get(`${process.env.baseUrl}/posts/${context.params.id}.json`)
       .then((res) => {
         return {
           loadedPost: res.data,

@@ -37,4 +37,10 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+
+  env: {
+    baseUrl:
+      process.env.BASE_URL ||
+      "https://nuxt-blog-1371e-default-rtdb.europe-west1.firebasedatabase.app",
+  },
 };

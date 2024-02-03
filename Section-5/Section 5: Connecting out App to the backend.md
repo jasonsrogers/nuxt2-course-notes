@@ -192,7 +192,6 @@ addPost(vuexContext, post) {
 
 ```
 
-
 ```js
  onSubmitted(post) {
       this.$store.dispatch("addPost", post).then(() => {
@@ -201,6 +200,5 @@ addPost(vuexContext, post) {
     },
 ```
 
-Note: we can't use $router in the store,  so it has to be in the callback 
-Note: we can't user context.route.params.id 
-
+Note: we can't use $router in the store, so it has to be in the callback
+Note: we can't user context.route.params.id
