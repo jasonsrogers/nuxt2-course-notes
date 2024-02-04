@@ -128,7 +128,36 @@ export default {
 };
 ```
  
+## Animating Page Transitions
 
+`srcDir` where are the source files located. (pages, layouts ...)
 
+```js
+export default {
+  srcDir: "client/",
+};
+```
+
+`transition` changes the default page transition.
+
+Default vuejs transitions system.
+
+```js
+
+export default {
+  transition: "fade",
+};
+```
+
+or
+
+```js
+export default {
+  transition: {
+    name: "fade",
+    mode: "out-in",
+  },
+};
+```
 
 
