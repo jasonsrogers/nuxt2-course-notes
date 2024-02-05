@@ -76,7 +76,7 @@ Change the build process.
 
 boolean to determine if the app is in development mode.
 
-Note: 
+Note:
 `nuxt build` and `nuxt start` will always override this to `false`.
 
 ## Working with environment variables
@@ -103,7 +103,7 @@ The variable will be replaced with the value of `process.env.BASE_URL` at compil
 
 ## Manipulating Routing Settings
 
-`generate` changes the way Nuxt generates pages 
+`generate` changes the way Nuxt generates pages
 
 `rootDir` changes the root directory of the project. (by default it's `/`)
 
@@ -114,7 +114,7 @@ You can use all the Vue Router Construction Options (check Vue docs for more inf
 ```js
 export default {
   router: {
-    base: "/my-app/", // web server folder structure 
+    base: "/my-app/", // web server folder structure
     extendRoutes(routes, resolve) {
       // programmatically add routes
       routes.push({
@@ -127,7 +127,7 @@ export default {
   },
 };
 ```
- 
+
 ## Animating Page Transitions
 
 `srcDir` where are the source files located. (pages, layouts ...)
@@ -143,7 +143,6 @@ export default {
 Default vuejs transitions system.
 
 ```js
-
 export default {
   transition: "fade",
 };
@@ -160,4 +159,47 @@ export default {
 };
 ```
 
+## Adding Plugins
 
+Allows to laod certain functionality or code before the app is fully initialized and mounted. This is important as you don't have access to the main.js file in Nuxt.
+
+For example, you can use it to load common components like out AppButton and AppControlInput to avoid loading them in every component.
+
+```js
+import Vue from "vue";
+
+import AppButton from "@/components/UI/AppButton";
+import AppControlInput from "@/components/UI/AppControlInput";
+import PostList from "@/components/Posts/PostList";
+
+Vue.component("AppButton", AppButton);
+Vue.component("AppControlInput", AppControlInput);
+Vue.component("PostList", PostList);
+```
+
+Note: important to import vue
+
+```js
+plugins: ["~/plugins/core-components.js"],
+```
+
+We can now remove the imports and the components declartions from the components.
+
+```js
+export default {
+  components: {
+    AppControlInput,
+    AppButton,
+  },
+}
+```
+
+And now our AppButton, AppControlInput and PostList are available globally before the components are mounted.
+
+## Registering a Date Filter
+
+plugins can be used for none Vue related code as well.
+
+For example we could check if the browser supports promises and load a polyfill if it doesn't.
+
+Example of a date filter plugin

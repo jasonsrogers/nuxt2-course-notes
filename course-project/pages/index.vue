@@ -9,12 +9,7 @@
 </template>
 <!-- 'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg' -->
 <script>
-import PostList from "@/components/Posts/PostList";
-
 export default {
-  components: {
-    PostList,
-  },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
