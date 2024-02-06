@@ -33,7 +33,13 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [],
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL:
+      process.env.BASE_URL ||
+      "http://firebaseurl.com",
+    credentials: false,
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
@@ -41,6 +47,6 @@ export default {
   env: {
     baseUrl:
       process.env.BASE_URL ||
-      "https://nuxt-blog-1371e-default-rtdb.europe-west1.firebasedatabase.app",
+      "http://firebaseurl.com",
   },
 };

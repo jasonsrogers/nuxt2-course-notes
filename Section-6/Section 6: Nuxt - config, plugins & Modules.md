@@ -191,7 +191,7 @@ export default {
     AppControlInput,
     AppButton,
   },
-}
+};
 ```
 
 And now our AppButton, AppControlInput and PostList are available globally before the components are mounted.
@@ -203,3 +203,50 @@ plugins can be used for none Vue related code as well.
 For example we could check if the browser supports promises and load a polyfill if it doesn't.
 
 Example of a date filter plugin
+
+## Understanding modules
+
+Modules allow you to add convinience functionality to your Nuxt app.
+
+You can find modules on the [community](https://github.com/nuxt-community/legacy-modules) or [nuxt page](https://nuxt.com/modules) or [awsome nuxt](https://github.com/nuxt/awesome)
+
+For example we can add the axios module to our app. That gives a deeper integration with axios and extra features.
+
+`npm install @nuxtjs/axios`
+
+Add the module and configure it in the nuxt.config.js file.
+
+```js
+modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL:
+      process.env.BASE_URL ||
+      "https://nuxt-blog-1371e-default-rtdb.europe-west1.firebasedatabase.app",
+  },
+```
+
+and now we can use this module in our app.
+
+```js
+actions: {
+  async nuxtServerInit(vuexContext, context) {
+    const res = await vuexContext.$axios.$get("/posts.json");
+    const postsArray = [];
+    for (const key in res) {
+      postsArray.push({ ...res[key], id: key });
+    }
+    return { loadedPosts: postsArray };
+  },
+  refresh() {
+    return this.$axios.$get("/posts.json").then((res) => {
+      const postsArray = [];
+      for (const key in res) {
+        postsArray.push({ ...res[key], id: key });
+      }
+      this.loadedPosts = postsArray;
+    });
+  },
+};
+```
+
+Note: `nuxtServerInit` and `asyncData` are special methods that are called on the server so they can't use the `this` keyword.
