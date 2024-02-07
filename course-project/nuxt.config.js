@@ -35,9 +35,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: ["@nuxtjs/axios"],
   axios: {
-    baseURL:
-      process.env.BASE_URL ||
-      "http://firebaseurl.com",
+    baseURL: process.env.BASE_URL || "http://firebaseurl.com",
     credentials: false,
   },
 
@@ -45,8 +43,10 @@ export default {
   build: {},
 
   env: {
-    baseUrl:
-      process.env.BASE_URL ||
-      "http://firebaseurl.com",
+    baseUrl: process.env.BASE_URL || "http://firebaseurl.com",
   },
+
+  // router: {
+  //   middleware: "log",
+  // },
 };
