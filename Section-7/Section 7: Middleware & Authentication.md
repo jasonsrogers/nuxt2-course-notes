@@ -57,3 +57,9 @@ export default {
 
 Note: if there is redirects, it will also trigger
 
+## Adding User Signup
+
+Firebase has a out of the box authentication system that we can use to add user signup. We're going to use the firebase Auth REST API.
+
+Using
+`https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=[API_KEY]`

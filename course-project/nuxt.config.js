@@ -44,6 +44,7 @@ export default {
 
   env: {
     baseUrl: process.env.BASE_URL || "http://firebaseurl.com",
+    fbAPIKey: process.env.FIREBASE_API_KEY,
   },
 
   // router: {
