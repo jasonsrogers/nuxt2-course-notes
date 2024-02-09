@@ -63,3 +63,59 @@ Firebase has a out of the box authentication system that we can use to add user 
 
 Using
 `https://identitytoolkit.googleapis.com/v1/accounts:signInWithCustomToken?key=[API_KEY]`
+
+## Storing the token
+
+Let's first set write to require auth in the firebase rules.
+
+```json
+{
+  "rules": {
+    ".read": true,
+    ".write": "auth != null"
+  }
+}
+```
+
+setup a mutation to store the token in the store.
+
+```js
+ setToken(state, token) {
+        state.token = token;
+      },
+```
+
+then we get a sucessful response from the server, we can store the token in the store.
+
+```js
+ .then((result) => {
+            vuexContext.commit("setToken", result.idToken);
+ })
+```
+
+
+## Using the token
+
+[Here](https://firebase.google.com/docs/database/rest/auth) we see how to authenticate with the token.
+
+## Implementing a Middleware
+
+Let's add a middleware to protect the auth routes.
+
+```js
+export default function(context) {
+  console.log("[Middleware] Just Auth");
+  if (!context.store.getters.isAuthenticated) {
+    context.redirect("/admin/auth");
+  }
+}
+```
+
+Then lets add the middleware to all the pages admin that we want to protect.
+
+```js
+middleware: ['auth'],
+```
+
+Note: we could add it at a admin layout instead but we would have to move the /admin/auth to another layout.
+

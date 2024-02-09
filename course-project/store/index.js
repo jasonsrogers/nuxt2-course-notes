@@ -4,6 +4,7 @@ const createStore = () => {
   return new Vuex.Store({
     state: {
       loadedPosts: [],
+      token: null,
     },
     mutations: {
       setPosts(state, posts) {
@@ -17,6 +18,9 @@ const createStore = () => {
           (post) => post.id === editedPost.id
         );
         state.loadedPosts[postIndex] = editedPost;
+      },
+      setToken(state, token) {
+        state.token = token;
       },
     },
     actions: {
@@ -46,7 +50,7 @@ const createStore = () => {
       addPost(vuexContext, post) {
         const createdPost = { ...post, updatedDate: new Date() };
         return this.$axios
-          .$post("/posts.json", createdPost)
+          .$post("/posts.json?auth=" + vuexContext.state.token, createdPost)
           .then((data) => {
             vuexContext.commit("addPost", {
               ...createdPost,
@@ -59,10 +63,13 @@ const createStore = () => {
       },
       editPost(vuexContext, editedPost) {
         return this.$axios
-          .$put("/posts/" + editedPost.id + ".json", {
-            ...editedPost,
-            updatedDate: new Date(),
-          })
+          .$put(
+            "/posts/" + editedPost.id + ".json?auth=" + vuexContext.state.token,
+            {
+              ...editedPost,
+              updatedDate: new Date(),
+            }
+          )
           .then((data) => {
             vuexContext.commit("editPost", editedPost);
           })
@@ -88,7 +95,7 @@ const createStore = () => {
               "tokenExpiration",
               new Date().getTime() + result.expiresIn * 1000
             );
-            vuexContext.dispatch("setLogoutTimer", result.expiresIn * 1000);
+            // vuexContext.dispatch("setLogoutTimer", result.expiresIn * 1000);
           })
           .catch((e) => console.log(e));
       },
@@ -96,6 +103,9 @@ const createStore = () => {
     getters: {
       loadedPosts(state) {
         return state.loadedPosts;
+      },
+      isAuthenticated(state) {
+        return state.token != null;
       },
     },
   });
