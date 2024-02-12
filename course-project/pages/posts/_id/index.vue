@@ -23,7 +23,6 @@
 
 <script>
 export default {
-  middleware: ["auth"],
   asyncData(context) {
     return context.app.$axios
       .$get("/posts/" + context.params.id + ".json")

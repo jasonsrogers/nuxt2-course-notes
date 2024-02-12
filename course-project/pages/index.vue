@@ -10,7 +10,6 @@
 <!-- 'https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg' -->
 <script>
 export default {
-  middleware: ["auth"],
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;

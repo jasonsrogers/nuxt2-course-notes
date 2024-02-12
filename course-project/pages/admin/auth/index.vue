@@ -43,21 +43,6 @@ export default {
         .then(() => {
           this.$router.push("/admin");
         });
-      // this.$axios
-      //   .post(
-      //     `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${process.env.fbAPIKey}`,
-      //     {
-      //       email: this.email,
-      //       password: this.password,
-      //       returnSecureToken: true,
-      //     }
-      //   )
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
     },
   },
 };
